@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<!---This part goes in settings - don't leave in HTML - CodePen--->
+<!---<a href="https://storyset.com/online">Online illustrations by Storyset</a>-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Paul Ojuara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Montserrat:wght@600&family=Quicksand:wght@400&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/51558fce96.js" crossorigin="anonymous"></script>--->
+
+    <Style>
+        /* Custom properties/variables  */
+        :root {
+            --main-fontcolor: #f49005;
+            --main-red: #a35f00;
+            --main-pale: #fde4a9;
+            --main-pale2: #fcf9eb;
+            --main-bkg: #b75800;
+        }
+
+        /* Base reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* box-sizing and font sizing */
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        html {
+            box-sizing: border-box;
+
+            /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        /* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+        /* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+        /* 1200px / 16px = 75em */
+        @media (max-width: 75em) {
+            html {
+                font-size: 60%;
+            }
+        }
+
+        /* 980px / 16px = 61.25em */
+        @media (max-width: 61.25em) {
+            html {
+                font-size: 58%;
+            }
+        }
+
+        /* 460px / 16px = 28.75em */
+        @media (max-width: 28.75em) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        /* Base styles */
+
+        body {
+            font-family: 'Josefin sans', sans-serif;
+            font-size: 1.8rem;
+            /* 18px */
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--main-fontcolor);
+        }
+
+        h1,
+        h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 2px 2px 1px #935601;
+        }
+
+        h1 {
+            font-size: 6rem;
+        }
+
+        h2 {
+            font-size: 4.2rem;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--main-fontcolor);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        /* nav */
+
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--main-pale);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+            z-index: 10;
+        }
+
+        .nav-list {
+            display: flex;
+            margin-right: 2rem;
+        }
+
+        .nav-icon {
+            /*display: flex;*/
+            padding: 10px;
+            max-width: 50px;
+            margin-left: 0%;
+            margin-right: 50%;
+        }
+
+        @media (max-width: 28.75em) {
+            .nav {
+                justify-content: center;
+            }
+
+            .nav-list {
+                margin: 0 1rem;
+            }
+        }
+
+        .nav-list a {
+            display: block;
+            font-size: 2.2rem;
+            padding: 2rem;
+        }
+
+        .nav-list a:hover {
+            background: var(--main-red);
+        }
+
+        /* Welcome section */
+        .welcome-img {
+            width: 50%;
+            animation: fadeInAnimation ease 8s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .welcome-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--main-pale2);
+            /*background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);*/
+        }
+
+        .welcome-section {
+            display: flex;
+            font-size: 3rem;
+            font-weight: 200;
+            /*font-style: italic;*/
+            justify-content: center;
+            align-items: center;
+            color: var(--main-fontcolor);
+        }
+
+        /* About Section */
+
+        .about1-tile-header {
+            max-width: 640px;
+            margin: 4rem auto 3rem auto;
+        }
+
+        .about1-tile {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: var(--main-pale2);
+        }
+
+        .about1-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--main-pale2);
+        }
+
+        .about1-section {
+            display: flex;
+            font-size: 3rem;
+            font-weight: 200;
+            /*font-style: italic;*/
+            justify-content: center;
+            align-items: center;
+            color: var(--main-fontcolor);
+        }
+        .my-pic {
+            margin:auto;
+            padding-bottom: 40px;
+            border-radius: 50%;
+            width: 20%;
+        }
+        /* Projects section */
+
+        .project-tile {
+            text-align: center;
+            padding: 10rem 2rem;
+            background: var(--main-pale2);
+
+        }
+
+        .project-tile-header {
+            max-width: 640px;
+            margin: 0 auto 6rem auto;
+            /*border-bottom: 0.2rem solid var(--main-fontcolor);*/
+        }
+
+        @media (max-width: 28.75em) {
+            .project-tile-header {
+                font-size: 4rem;
+            }
+        }
+
+        /* "Automagic" image grid using no media queries */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-gap: 4rem;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            margin-bottom: 6rem;
+        }
+
+        @media (max-width: 30.625em) {
+            .project-tile {
+                padding: 6rem 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* changes the color of squares in projects */
+        .project {
+            background: var(--main-bkg);
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+            border-radius: 2px;
+        }
+
+        .code {
+            color: var(--main-bkg);
+            transition: color 0.3s ease-out;
+        }
+
+        .project::hover {
+            background: var(--main-pale);
+        }
+
+        .code {
+            color: #ff7f50;
+        }
+
+        .project-image {
+            height: calc(100% - 6.8rem);
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            padding: 2rem 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 2px;
+        }
+
+        .btn-show-all {
+            font-size: 2rem;
+            background: var(--main-bkg);
+            transition: background 0.3s ease-out;
+        }
+
+        .btn-show-all:hover {
+            background: var(--main-red);
+        }
+
+        .btn-show-all:hover>i {
+            transform: translateX(2px);
+        }
+
+        .btn-show-all>i {
+            margin-left: 10px;
+            transform: translateX(0);
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Contact section */
+
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 80vh;
+            padding: 0 2rem;
+            background: var(--main-pale2);
+        }
+
+        .contact-section-header>h2 {
+            font-size: 6rem;
+        }
+
+        @media (max-width: 28.75em) {
+            .contact-section-header>h2 {
+                font-size: 4rem;
+            }
+        }
+
+        .contact-section-header>p {
+            font-style: italic;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 980px;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-details {
+            font-size: 2.4rem;
+            text-shadow: 1px 1px 1px #1f1f1f;
+            transition: transform 0.3s ease-out;
+        }
+
+        .contact-details:hover {
+            transform: translateY(8px);
+        }
+
+        /* Footer */
+
+        footer {
+            font-weight: 300;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 2rem;
+            background: var(--main-bkg);
+            border-top: 4px solid var(--main-blue);
+        }
+
+        footer>p {
+            margin: 2rem;
+        }
+
+        footer i {
+            vertical-align: middle;
+        }
+
+        @media (max-width: 28.75em) {
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </Style>
+    <!---<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet" />--->
+    <!-- START NAV -->
+
+    <nav id="navbar" class="nav">
+
+        <img class="nav-icon" src="images/baloon_logo_1.png" alt="Fly high...">
+
+        <ul class="nav-list">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="#about1">About</a>
+            </li>
+            <li>
+                <a href="#projects">Websites</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- END NAV -->
+
+    <!-- START WELCOME SECTION -->
+
+    <section id="welcome-section" class="welcome-section">
+        <img class="welcome-img" src="images/welcome_1.png" alt="welcome">
+        <p>To my Web Developer Portfolio</p>
+    </section>
+
+    <!-- END WELCOME SECTION -->
+
+    <!-- START ABOUT SECTION -->
+    
+    <section id="about1" class="about1-tile">
+        <h2 class="about1-tile-header">About me</h2>
+        <img class="my-pic" src="images/ojuaraphoto.jpg" alt="Paul Ojuara Himself">
+        <p class="about1-section">Who is Ojuarapaul, anyway?</p>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </section>
+
+        <!-- END ABOUT SECTION -->
+
+        <!-- START PROJECTS SECTION -->
+
+        <section id="projects" class="project-tile">
+            <h2 class="project-tile-header">These are some of my projects</h2>
+
+            <div class="projects-grid">
+                <a href="https://ojuara.46graus.com" target="_blank" class="project project-tile">
+                    <img class="project-image" src="https://i.imgur.com/RoDaDkE.png" alt="project">
+                    <p class="project-title">
+                        <span class="code"></span>
+                        Commercial Photography
+                        <span class="code"></span>
+                    </p>
+                </a>
+                <a href="https://meioambiente.ufrn.br" target="_blank" class="project project-tile">
+                    <img class="project-image" src="https://i.imgur.com/ljzpawP.png" alt="project">
+                    <p class="project-title">
+                        <span class="code"></span>
+                        Environment Portal at UFRN
+                        <span class="code"></span>
+                    </p>
+                </a>
+                <a href="https://ojuarapaul.com" target="_blank" class="project project-tile">
+                    <img class="project-image" src="https://i.imgur.com/QNaoL4m.png" alt="project">
+                    <p class="project-title">
+                        <span class="code"></span>
+                        Paul Ojuara Wildlife Photography
+                        <span class="code"></span>
+                    </p>
+                </a>
+
+        </section>
+
+        <!-- END PROJECTS SECTION -->
+
+        <!-- START CONTACT SECTION -->
+
+        <section id="contact" class="contact-section">
+            <div class="contact-section-header">
+                <h2>Let's chat about your needs...</h2>
+                <p>Responsive Web Design</p>
+                <p>Javascript</p>
+                <p>Python</p>
+            </div>
+            <div class="contact-links">
+                <a href="https://instagram.com/ojuarapaul" target="_blank" class="btn contact-details"><i
+                        class="fab fa-instagram-square"></i> Instagram</a>
+                <a id="profile-link" href="https://github.com/ojuarapaul" target="_blank" class="btn contact-details"><i
+                        class="fab fa-github"></i> GitHub</a>
+                <a href="https://twitter.com/ojuarapaul" target="_blank" class="btn contact-details"><i
+                        class="fab fa-twitter"></i> Twitter</a>
+                <a href="mailto:fakemail@fakemail.com" class="btn contact-details"><i class="fas fa-at"></i> Send a
+                    mail</a>
+                <a href="tel:555-555-5555" class="btn contact-details"><i class="fas fa-mobile-alt"></i> Call me</a>
+            </div>
+        </section>
+
+        <!-- END CONTACT SECTION -->
+
+        <!-- START FOOTER SECTION -->
+
+        <footer>
+            <p>
+                Please contact me to know how we can build an amazing website for your business.
+            </p>
+            <p>
+                &copy; Created by
+                <a href="https://www.ojuarapaul.com/" target="_blank">Ojuarapaul <i class="fab fa-github"></i></a>
+            </p>
+        </footer>
+
+        <!-- END FOOTER SECTION -->
