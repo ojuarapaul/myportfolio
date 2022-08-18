@@ -1,2 +1,2 @@
 # myportfolio
-This is my personal portfolio. Obviously, it's in constant development.
+This is my personal portfolio. Please note it's in constant development.
