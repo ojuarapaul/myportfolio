@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Portfolio {*} Paul Ojuara</title>
+    <title>Portfolio - Paul Ojuara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -23,11 +23,11 @@
             --main-bkg: #b75800;
         }
 
-        /* Base reset 
+        /* Base reset */
         * {
             margin: 0;
             padding: 0;
-        }*/
+        }
 
         /* box-sizing and font sizing */
         *,
@@ -61,34 +61,27 @@
  * As an example: a breakpoint at 980px
  * 980px / 16px = 61.25em
 */
-        
-        /* 2700px / 16px = 173em 
-        @media (max-width: 170em) {
+
+        /* 1200px / 16px = 75em */
+        @media (max-width: 80em) {
             html {
-                font-size: 40%;
-            }
-        }*/
-        
-        /*1200px / 16px = 75em */
-        @media (max-width: 75em) {
-            html {
-                font-size: 30%;
+                font-size: 60%;
             }
         }
 
         /* 980px / 16px = 61.25em */
         @media (max-width: 61.25em) {
             html {
-                font-size: 80%;
+                font-size: 58%;
             }
         }
 
-        /* 460px / 16px = 28.75em 
+        /* 460px / 16px = 28.75em */
         @media (max-width: 28.75em) {
             html {
                 font-size: 55%;
             }
-        }*/
+        }
 
         /* Base styles */
 
@@ -104,7 +97,6 @@
         h1,
         h2,
         h3 {
-            padding: 8px;
             font-family: 'Quicksand', sans-serif;
             font-weight: 700;
             text-align: center;
@@ -117,10 +109,9 @@
 
         h2 {
             font-size: 4.2rem;
-            padding: 8px;
         }
         h3 {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             padding: 8px;
         }
         p {
@@ -371,15 +362,14 @@
             align-items: center;
             text-align: center;
             width: 100%;
-            height: 120vh;
-            padding: 0 4rem 4rem 4rem;
+            height: 80vh;
+            padding: 0 4rem;
             background: var(--main-pale2);
         }
 
-        contact-section-header>h2 {
-            margin: 0 auto 6rem auto;
-            font-size: 4rem;
-           
+        .contact-section-header>h3 {
+            font-size: 6rem;
+            padding: 6rem;
         }
 
         @media (max-width: 28.75em) {
@@ -398,8 +388,6 @@
             width: 100%;
             max-width: 980px;
             margin-top: 4rem;
-            margin-bottom: 4rem;
-            padding: 8rem;
             flex-wrap: wrap;
         }
 
@@ -526,7 +514,7 @@
 
         <section id="contact" class="contact-section">
             <div class="contact-section-header">
-                <h2>Let's talk about your needs?</h2>
+                <h3>Let's chat about your needs...</h3>
                 <p>Responsive Web Design</p>
                 <p>Javascript, Bootstrap, React & Node.js</p>
                 <p>Python & Django</p>
