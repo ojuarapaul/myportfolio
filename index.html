@@ -1,574 +1,272 @@
 <!DOCTYPE html>
-<!---This part goes in settings - don't leave in HTML - CodePen--->
-<!---<a href="https://storyset.com/online">Online illustrations by Storyset</a>-->
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Paul Ojuara</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- here goes the link to load Bootstrap 5 CSS --->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- here goes the links to load Google Fonts (the example is for Josefin)--->
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Montserrat:wght@600&family=Quicksand:wght@400&display=swap"
         rel="stylesheet">
-    <script src="https://kit.fontawesome.com/51558fce96.js" crossorigin="anonymous"></script>--->
 
-    <Style>
-        /* Custom properties/variables  */
-        :root {
-            --main-fontcolor: #f49005;
-            --main-red: #a35f00;
-            --main-pale: #fde4a9;
-            --main-pale2: #fcf9eb;
-            --main-bkg: #b75800;
-        }
-
-        /* Base reset */
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        /* box-sizing and font sizing */
-        *,
-        *::before,
-        *::after {
-            box-sizing: inherit;
-        }
-
-        html {
-            box-sizing: border-box;
-
-            /* Set font size for easy rem calculations
-   * default document font size = 16px, 1rem = 16px, 100% = 16px
-   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
-  */
-            font-size: 62.5%;
-            scroll-behavior: smooth;
-        }
-
-        /* A few media query to set some font sizes at different screen sizes.
- * This helps automate a bit of responsiveness.
- * The trick is to use the rem unit for size values, margin and padding.
- * Because rem is relative to the document font size
- * when we scale up or down the font size on the document
- * it will affect all properties using rem units for the values.
-*/
-
-        /* em unit for breakpoints
- * calculation:
- * screen size divided by browser base font size
- * As an example: a breakpoint at 980px
- * 980px / 16px = 61.25em
-*/
-
-        /* 1200px / 16px = 75em */
-        @media (max-width: 80em) {
-            html {
-                font-size: 60%;
-            }
-        }
-
-        /* 980px / 16px = 61.25em */
-        @media (max-width: 61.25em) {
-            html {
-                font-size: 58%;
-            }
-        }
-
-        /* 460px / 16px = 28.75em */
-        @media (max-width: 28.75em) {
-            html {
-                font-size: 55%;
-            }
-        }
-
-        /* Base styles */
-
-        body {
-            font-family: 'Josefin sans', sans-serif;
-            font-size: 1.8rem;
-            /* 18px */
-            font-weight: 400;
-            line-height: 1.4;
-            color: var(--main-fontcolor);
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 700;
-            text-align: center;
-            text-shadow: 2px 2px 1px #935601;
-        }
-
-        h1 {
-            font-size: 6rem;
-        }
-
-        h2 {
-            font-size: 4.2rem;
-        }
-        /*h3 {
-            font-size: 3.5rem;
-            padding: 8px;
-        }*/
-        p {
-            text-align: center;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--main-fontcolor);
-        }
-
-        img {
-            display: block;
-            width: 100%;
-        }
-
-        /* nav */
-
-        .nav {
-            display: flex;
-            justify-content: flex-end;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: var(--main-pale);
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
-            z-index: 10;
-        }
-
-        .nav-list {
-            display: flex;
-            margin-right: 2rem;
-        }
-
-        .nav-icon {
-            /*display: flex;*/
-            padding: 10px;
-            max-width: 50px;
-            margin-left: 0%;
-            margin-right: 50%;
-        }
-
-        @media (max-width: 28.75em) {
-            .nav {
-                justify-content: center;
-            }
-
-            .nav-list {
-                margin: 0 1rem;
-            }
-        }
-
-        .nav-list a {
-            display: block;
-            font-size: 2.2rem;
-            font-weight: bolder;
-            padding: 2rem;
-        }
-
-        .nav-list a:hover {
-            background: var(--main-red);
-        }
-
-        /* Welcome section */
-        .welcome-img {
-            width: 50%;
-            animation: fadeInAnimation ease 8s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes fadeInAnimation {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .welcome-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100vh;
-            background-color: var(--main-pale2);
-            /*background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);*/
-        }
-
-        .welcome-section {
-            display: flex;
-            font-size: 3rem;
-            font-weight: 200;
-            /*font-style: italic;*/
-            justify-content: center;
-            align-items: center;
-            color: var(--main-fontcolor);
-        }
-
-        /* About Section */
-
-        .about1-tile-header {
-            max-width: 640px;
-            margin: 4rem auto 3rem auto;
-        }
-
-        .about1-tile {
-            text-align: center;
-            padding: 5rem 2rem;
-            background: var(--main-pale2);
-        }
-
-        .about1-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--main-pale2);
-        }
-
-        .about1-section {
-            display: flex;
-            font-size: 3rem;
-            font-weight: 200;
-            /*font-style: italic;*/
-            justify-content: center;
-            align-items: center;
-            color: var(--main-fontcolor);
-        }
-        .my-pic {
-            margin:auto;
-            padding-bottom: 40px;
-            border-radius: 50%;
-            width: 20%;
-        }
-        /* Projects section */
-
-        .project-tile {
-            text-align: center;
-            padding: 10rem 2rem;
-            background: var(--main-pale2);
-
-        }
-
-        .project-tile-header {
-            max-width: 640px;
-            margin: 0 auto 6rem auto;
-            /*border-bottom: 0.2rem solid var(--main-fontcolor);*/
-        }
-
-        @media (max-width: 28.75em) {
-            .project-tile-header {
-                font-size: 4rem;
-            }
-        }
-
-        /* "Automagic" image grid using no media queries */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            grid-gap: 4rem;
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            margin-bottom: 6rem;
-        }
-
-        @media (max-width: 30.625em) {
-            .project-tile {
-                padding: 6rem 1rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* changes the color of squares in projects */
-        .project {
-            background: var(--main-bkg);
-            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
-            border-radius: 2px;
-        }
-
-        .code {
-            color: var(--main-bkg);
-            transition: color 0.3s ease-out;
-        }
-
-        .project::hover {
-            background: var(--main-pale);
-        }
-
-        .code {
-            color: #ff7f50;
-        }
-
-        .project-image {
-            height: calc(100% - 6.8rem);
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .project-title {
-            font-size: 2rem;
-            padding: 2rem 0.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 2px;
-        }
-
-        .btn-show-all {
-            font-size: 2rem;
-            background: var(--main-bkg);
-            transition: background 0.3s ease-out;
-        }
-
-        .btn-show-all:hover {
-            background: var(--main-red);
-        }
-
-        .btn-show-all:hover>i {
-            transform: translateX(2px);
-        }
-
-        .btn-show-all>i {
-            margin-left: 10px;
-            transform: translateX(0);
-            transition: transform 0.3s ease-out;
-        }
-
-        /* Contact section */
-
-        .contact-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-            height: 80vh;
-            /*padding: 0 4rem;*/
-            background: var(--main-pale2);
-        }
-
-        .contact-section-header>h3 {
-            font-size: 6rem;
-            padding: 6rem;
-        }
-
-        @media (max-width: 28.75em) {
-            .contact-section-header>h2 {
-                font-size: 4rem;
-            }
-        }
-
-        .contact-section-header>p {
-            font-style: italic;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            max-width: 980px;
-            margin-top: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-details {
-            font-size: 2.4rem;
-            text-shadow: 1px 1px 1px #1f1f1f;
-            transition: transform 0.3s ease-out;
-        }
-
-        .contact-details:hover {
-            transform: translateY(8px);
-        }
-
-        /* Footer */
-
-        footer {
-            font-weight: 300;
-            display: flex;
-            justify-content: space-evenly;
-            padding: 2rem;
-            background: var(--main-bkg);
-            border-top: 4px solid var(--main-blue);
-        }
-
-        footer>p {
-            margin: 2rem;
-        }
-
-        footer i {
-            vertical-align: middle;
-        }
-
-        @media (max-width: 28.75em) {
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </Style>
-    <!---<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet" />--->
-    <!-- START NAV -->
-
-    <nav id="navbar" class="nav">
-
-        <!---img class="nav-icon" src="images/baloon_logo_1.png" alt="Fly high..."--->
-
-        <ul class="nav-list">
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="#about1">About</a>
-            </li>
-            <li>
-                <a href="#projects">Websites</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-        </ul>
+    <!-- here goes the link to load your proprietary CSS code--->
+    <link rel="stylesheet" href="css/mystyle.css">
+
+    <!---Optional JavaScript-->
+    <!-- here goes the script to load JQuery than Bootstrap 5 JavaScript Bundle with Popper-->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/51558fce96.js" crossorigin="anonymous"></script>
+
+    <!-- here goes the script to call the external js files - see example below--->
+    <!---script src="/js/myScript.js"></script--->
+</head>
+
+<style>
+    /* here goes the internal style information (CSS) for the document*/
+</style>
+
+<body>
+    <!--- Implementation of NavBar Bootstrap Menu --->
+    <nav class="navbar navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-left" href="#"><img src="images/logo-test3_800px.png" alt="" width="40"
+                    height="40" class="d-inline-block align-text-middle" href="index.html"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header mx-auto">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Ojuara WebDev</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#about1">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#projects">Projects</a>
+                        </li>
+                        <div class="dropdown mt-3">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown">
+                                Projects links
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="https://meioambiente.ufrn.br"
+                                        target="_blank">Environment
+                                        Portal</a></li>
+                                <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="https://ojuarapaul.github.io/myblog/"
+                                        target="_blank">Personal Blog</a></li>
+                                <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="https://ojuarapaul.github.io/tech_doc_page/"
+                                        target="_blank">Tech DocPage</a></li>
+                                <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="https://ojuara.46graus.com"
+                                        target="_blank">Commercial
+                                        Photography</a></li>
+                                <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="https://ojuarapaul.com" target="_blank">Wix
+                                        Platform</a></li>
+                                <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" href="https://dalamaaocaosbike.wordpress.com"
+                                        target="_blank">Wordpress.com</a></li>
+                            </ul>
+                            </li>
+                    </ul>
+                    <br>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                    <br>
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#contact">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </nav>
-
-    <!-- END NAV -->
+    <!--- End of NAvBar Menu --->
 
     <!-- START WELCOME SECTION -->
 
     <section id="welcome-section" class="welcome-section">
-        <img class="welcome-img" src="images/welcome_1.png" alt="welcome">
-        <p>to my web developer portfolio</p>
+        <img class="welcome-img" src="images/logo-test2_300px.png" alt="" alt="welcome">
+        <p>Ojuara WebDev</p>
     </section>
 
     <!-- END WELCOME SECTION -->
 
     <!-- START ABOUT SECTION -->
-    
-    <section id="about1" class="about1-tile">
-        <h2 class="about1-tile-header">About me</h2>
-        <img class="my-pic" src="images/ojuaraphoto.jpg" alt="Paul Ojuara Himself">
-        <p class="about1-section">Who I Am</p>
-        <p>I am an architect/urbanist with 10+ years of experience with AutoCAD, AutoCAD 3D, 3D Studio Max, and SketchUp. My passion for technology made me become a self-taught Basic language programmer. Recently, I took several online courses in HTML5, CSS3, and Python. I am currently enrolled in a Web Development Bootcamp, improving my knowledge in HTML, CSS, Bootstrap, JavaScript, and Python, aiming to become a full-stack developer.</p>
+    <div>
+        <section id="about1" class="about1-tile">
+            <img class="my-pic" src="images/ojuaraphoto.jpg" alt="Paul Ojuara Himself">
+            <p class="about1-section">Who I Am</p>
+            <p class="about2-section">I am an architect/urbanist with 10+ years of experience with AutoCAD, AutoCAD 3D,
+                3D Studio Max, and SketchUp. <br>My passion for technology made me become a self-taught Basic language
+                programmer. <br>Recently, I took several online courses in HTML5, CSS3, and Python. <br>I am currently enrolled in a Web Development
+                Bootcamp, improving my knowledge in HTML, CSS, Bootstrap, JavaScript, and Python, <br>as well as in Django and ReactJS frameworks to improve my skills as a full-stack developer.
+                </p>
+        </section>
+    </div>
+    <!-- END ABOUT SECTION -->
+
+    <!-- START CAROUSEL SECTION -->
+
+    <section id="projects" class="project-tile">
+        <p class="projects1-section">These are some of my projects</p>
+        <p>The following projects illustrate a small part of my work as a Web Developer. I worked as a project mnanager for a University, assisting the development of their Environment Portal as an UX/UI consultant. Also, several projects developed during my education in Web Dev are displayed.
+            As I'm also familiar with some web platforms, such as Wix and Wordpress, please take some time to navigate througout all the websites displayed below. They are just a click away.
+        </p>
+        <br>
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                    aria-label="Slide 6"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="https://meioambiente.ufrn.br" target="_blank">
+                        <img class="d-block w-50 mx-auto" src="images/boaspraticas_1.png" alt="First slide"></a>
+                    <div class="d-none d-lg-block">
+                        <div class="carousel-caption w-50 mx-auto mw-25 d-block bg-secondary text-dark">
+                            <h5>Worked as a Project Manager and UX/UI Consultant</h5>
+                            <p>This is a website developed for a Univeristy Environmental Portal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://ojuarapaul.github.io/myblog/" target="_blank">
+                        <img class="d-block w-50 mx-auto" src="images/personalblog.png" alt="Second slide"></a>
+                    <div class="d-none d-lg-block">
+                        <div class="carousel-caption  w-50 mx-auto mw-25 d-block bg-secondary text-dark">
+                            <h5>Developed as a personal project for training purposes</h5>
+                            <p>This page is a mock up of a personal blog with a JS animated Menu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://ojuarapaul.github.io/tech_doc_page/" target="_blank">
+                        <img class="d-block w-50 mx-auto" src="images/techdoc.png" alt="Third slide"></a>
+                    <div class="d-none d-lg-block">
+                        <div class="carousel-caption d-block  w-50 mx-auto mw-25 bg-secondary text-dark">
+                            <h5>Developed as a project for the FreeCodeCamp Responsive WebDesign Course</h5>
+                            <p>This page is a Techincal Documentation Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://ojuara.46graus.com" target="_blank">
+                        <img class="d-block w-50 mx-auto" src="images/ojuaracomercial_1.png" alt="Fourth slide"></a>
+                    <div class="d-none d-lg-block">
+                        <div class="carousel-caption d-block  w-50 mx-auto mw-25 bg-secondary text-dark">
+                            <h5>Developed under 46graus.com platform</h5>
+                            <p>This website is a commercial photographer's portfolio</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://ojuarapaul.com" target="_blank">
+                        <img class="d-block w-50 mx-auto style= width: 500px;" src="images/ojuarawildlife.png"
+                            alt="Fifth slide"></a>
+                    <div class="d-none d-lg-block">
+                        <div class="carousel-caption d-block  w-50 mx-auto mw-25 p-2 bg-secondary text-dark">
+                            <h5>Developed under wix.com platform</h5>
+                            <p>This website is a wildlife photographer's portfolio</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://dalamaaocaosbike.wordpress.com" target="_blank">
+                        <img class="d-block w-50 mx-auto style= width: 500px;" src="images/dlac.png"
+                            alt="Sixty slide"></a>
+
+                    <div class="d-none d-lg-block">
+                        <div class="carousel-caption d-block  w-50 mx-auto mw-25 p-2 bg-secondary text-dark">
+                            <h5>Developed under wordpress.com platform</h5>
+                            <p>This website is a personal blog</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </a>
+            </div>
     </section>
 
-        <!-- END ABOUT SECTION -->
+    <!-- END CAROUSEL SECTION -->
+    <!-- START CONTACT SECTION -->
 
-        <!-- START PROJECTS SECTION -->
+    <section id="contact" class="contact-section">
+        <p class="contact1-section">What I can do for you:</p>
+        <p class="contact2-section"> I currently develop entirely responsive websites (like this one) using Html5, Css3, Bootstrap5, JavaScript
+            and also work with different platforms such as Shopify, Worpress.com, and Wix.</p>
+        <div class="contact-links">
+            <a href="https://instagram.com/ojuarapaul" target="_blank" class="btn contact-details"><i
+                    class="fab fa-instagram-square"></i> Instagram</a>
+            <a id="profile-link" href="https://github.com/ojuarapaul" target="_blank" class="btn contact-details"><i
+                    class="fab fa-github"></i> GitHub</a>
+            <a href="https://twitter.com/ojuarapaul" target="_blank" class="btn contact-details"><i
+                    class="fab fa-twitter"></i> Twitter</a>
+            <a href="mailto:fakemail@fakemail.com" class="btn contact-details"><i class="fas fa-at"></i> Send a
+                mail</a>
+            <a href="tel:555-555-5555" class="btn contact-details"><i class="fas fa-mobile-alt"></i> Call me</a>
+        </div>
+    </section>
 
-        <section id="projects" class="project-tile">
-            <h2 class="project-tile-header">These are some of my projects</h2>
+    <!-- END CONTACT SECTION -->
 
-            <div class="projects-grid">
-                <a href="https://ojuara.46graus.com" target="_blank" class="project project-tile">
-                    <img class="project-image" src="https://i.imgur.com/RoDaDkE.png" alt="Paul Ojuara Photography">
-                    <p class="project-title">
-                        <span class="code"></span>
-                        Commercial Photography
-                        <span class="code"></span>
-                    </p>
-                </a>
-                <a href="https://meioambiente.ufrn.br" target="_blank" class="project project-tile">
-                    <img class="project-image" src="https://i.imgur.com/ljzpawP.png" alt="Institutional Website">
-                    <p class="project-title">
-                        <span class="code"></span>
-                        Environment Portal at UFRN
-                        <span class="code"></span>
-                    </p>
-                </a>
-                <a href="https://ojuarapaul.com" target="_blank" class="project project-tile">
-                    <img class="project-image" src="https://i.imgur.com/QNaoL4m.png" alt="Ojuarapaul Wildlife Photography">
-                    <p class="project-title">
-                        <span class="code"></span>
-                        Paul Ojuara Wildlife Photography
-                        <span class="code"></span>
-                    </p>
-                </a>
-                <a href="https://dalamaaocaosbike.wordpress.com" target="_blank" class="project project-tile">
-                    <img class="project-image" src="https://i.imgur.com/wDmDHrt.png" alt="Moutain Bike Blog">
-                    <p class="project-title">
-                        <span class="code"></span>
-                        Mountain Bike Blog
-                        <span class="code"></span>
-                    </p>
-                </a>
-                <a href="https://ojuarapaul.github.io/myblog/" target="_blank" class="project project-tile">
-                    <img class="project-image" src="https://i.imgur.com/2Qnzqrm.png" alt="Personal Blog">
-                    <p class="project-title">
-                        <span class="code"></span>
-                        Personal Blog
-                        <span class="code"></span>
-                    </p>
-                </a>
-                <a href="https://ojuarapaul.github.io/tech_doc_page/" target="_blank" class="project project-tile">
-                    <img class="project-image" src="https://i.imgur.com/Nn7ebyT.png" alt="Tech Doc Page">
-                    <p class="project-title">
-                        <span class="code"></span>
-                        Tech Doc Page
-                        <span class="code"></span>
-                    </p>
-                </a>
-        </section>
+    <!-- START FOOTER SECTION -->
 
-        <!-- END PROJECTS SECTION -->
+    <footer>
+        <p>
+            Contact me to build an amazing website for your business.
+        </p>
+        <p>
+            &copy; Created by
+            <a>Ojuarapaul <i class="fab fa-github"></i></a>
+        </p>
+    </footer>
 
-        <!-- START CONTACT SECTION -->
-
-        <section id="contact" class="contact-section">
-            <!---div class="contact-section-header"--->
-                <h2 class="project-tile-header">How we can work together</h2>
-                <h4>Currently I develop responsive websites using Html 5, Css 3, JavaScript</h4>
-                <h4>and also work with different platforms</h4>
-                <h4>such as Shopify, Worpress.com, and Wix.</h4>
-                
-            <!---/div--->
-            <div class="contact-links">
-                <a href="https://instagram.com/ojuarapaul" target="_blank" class="btn contact-details"><i
-                        class="fab fa-instagram-square"></i> Instagram</a>
-                <a id="profile-link" href="https://github.com/ojuarapaul" target="_blank" class="btn contact-details"><i
-                        class="fab fa-github"></i> GitHub</a>
-                <a href="https://twitter.com/ojuarapaul" target="_blank" class="btn contact-details"><i
-                        class="fab fa-twitter"></i> Twitter</a>
-                <a href="mailto:psfaraujo@gmail.com" class="btn contact-details"><i class="fas fa-at"></i> Send a
-                    mail</a>
-                <a href="tel:604-441-9160" class="btn contact-details"><i class="fas fa-mobile-alt"></i> Call me</a>
-            </div>
-        </section>
-
-        <!-- END CONTACT SECTION -->
-
-        <!-- START FOOTER SECTION -->
-
-        <footer>
-            <p>
-                Please contact me to know how we can build an amazing website for your business.
-            </p>
-            <p>
-                &copy; Created by
-                <a href="https://www.ojuarapaul.com/" target="_blank">Ojuarapaul <i class="fab fa-github"></i></a>
-            </p>
-        </footer>
-
-        <!-- END FOOTER SECTION -->
+    <!-- END FOOTER SECTION -->
+</body>
