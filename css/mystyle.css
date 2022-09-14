@@ -53,6 +53,7 @@ body {
 
 /* About Section */
 
+
 .about1-tile-header {
   max-width: 640px;
   width: 100%;
@@ -63,9 +64,9 @@ body {
 .about1-tile {
   text-align: center;
   margin-top: 6rem;
-  margin-bottom: 6.5rem;
+  margin-bottom: 4rem;
   padding-top: 6rem;
-  padding-bottom: 6.5rem;
+  padding-bottom: 4rem;
   background: var(--main-pale2);
 }
 
@@ -84,7 +85,7 @@ body {
 }
 
 .about2-section {
-  fflex-direction: column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
@@ -94,7 +95,7 @@ body {
   padding-right: 2rem;
   margin: 2rem;
   margin-top:3rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   
 }
 .my-pic {
