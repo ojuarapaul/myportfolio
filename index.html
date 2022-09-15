@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="css/mystyle.css">
 
     <!---Optional JavaScript-->
+
+</script>
+
+    <!---Optional JavaScript-->
     <script type="text/javascript">
         function close_offcanvas() {
             var element1 = document.getElementById("nav_toggler");
@@ -68,8 +72,6 @@
                 aria-labelledby="offcanvasDarkNavbarLabel">
                 <div class="offcanvas-header mx-auto">
                     <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Ojuara WebDev</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -83,7 +85,7 @@
                             <a class="nav-link active" onclick="close_offcanvas()" href="#projects">Projects</a>
                         </li>
                         <div class="dropdown mt-3">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-bs-toggle="dropdown">
                                 Projects links
                             </button>
@@ -113,7 +115,7 @@
                     <br>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                     <br>
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -121,6 +123,9 @@
                             <a class="nav-link active" aria-current="page" onclick="close_offcanvas()" href="#contact">Contacts</a>
                         </li>
                     </ul>
+                    <br>
+                    <button type="button" class="btn btn-secondary btn-sm mx-auto" data-bs-dismiss="offcanvas"
+                        aria-label="Close">Close menu</button>
                 </div>
             </div>
         </div>
