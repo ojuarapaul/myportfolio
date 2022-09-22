@@ -267,8 +267,7 @@ body {
 }
 
 .btn_anim4 {
-  /*width: 50%;*/
-  text-align: center;
+  text-align:center;
   animation: fadeInAnimation ease 6s;
   animation-iteration-count: infinite;
   animation-fill-mode:forwards;
@@ -288,27 +287,11 @@ body {
 /* Footer */
 
 footer {
-  font-weight: 300;
-  display: flex;
+  /*display: flex;*/
+  text-align:center;
   justify-content: space-evenly;
-  padding: 2rem;
+  padding: 3rem;
   background: var(--main-bkg);
-  border-top: 4px solid var(--main-blue);
-}
-
-footer>p {
-  margin: 2rem;
-}
-
-footer i {
-  vertical-align: middle;
-}
-
-@media (max-width: 28.75em) {
-  footer {
-      flex-direction: column;
-      text-align: center;
-  }
 }
 
 .footer_anim {
