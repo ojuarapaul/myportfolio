@@ -180,6 +180,12 @@ body {
   color: var(--main-fontcolor);
 }
 
+@media screen and (max-width: 420px){
+  .contact1-section {
+    font-size: 1.8rem;
+  }
+}
+
 .contact2-section { 
   justify-content: center;
   align-items: center;
