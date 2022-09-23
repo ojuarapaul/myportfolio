@@ -189,6 +189,15 @@ body {
   margin-bottom: 1rem;
 }  
 
+.responsive1 {
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 1rem;
+  margin-bottom: 1rem;
+}
+
 .contact-links {
   display: flex;
   align-content: center;
