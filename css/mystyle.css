@@ -179,7 +179,7 @@ body {
   color: var(--main-fontcolor);
 }
 
-/* On screens that are 420px wide or less, change font-size from 2rem to 1.8rem */
+/* On screens that are 420px wide or less, change font-size from 2rem to 1.6rem */
 @media screen and (max-width: 420px){
   .contact1-section {
     font-size: 1.6rem;
