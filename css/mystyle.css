@@ -9,9 +9,30 @@
 body {
   background-color: lightblue;
   font-family: 'Montserrat', sans-serif;
+  
+
 }
 
 /* Welcome section */
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(/images/BC-bkg-2e.png);
+  opacity:1;
+  background-size: cover;
+  text-align: center;
+  font-family:'Raleway';
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--main-fontcolor); 
+}
+
+
 .welcome-img-anim {
   animation: fadeInAnimation ease 8s;
   animation-iteration-count: 1;
@@ -43,21 +64,6 @@ body {
   100% {
     opacity: 1;
   }
-}
-
-.welcome-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--main-pale);
-  text-align: center;
-  font-family:'Raleway';
-  font-size: 2.8rem;
-  font-weight: 400;
-  color: var(--main-fontcolor);
 }
 
 /* END OF WELCOME SECTION */
