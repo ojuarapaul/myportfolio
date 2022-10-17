@@ -16,15 +16,14 @@ body {
 /* Welcome section */
 
 .welcome-section {
-  display: flex;
+  background-image: url("../images/welcome_bkg.png");
+  opacity:1;
+  background-size: cover;display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url("../images/BC-bkg-2f.png");
-  opacity:1;
-  background-size: cover;
   text-align: center;
   font-family:'Raleway';
   font-size: 2.8rem;
