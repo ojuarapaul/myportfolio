@@ -22,7 +22,7 @@ body {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url("images/BC-bkg-2f.png");
+  background-image: url("../images/BC-bkg-2f.png");
   opacity:1;
   background-size: cover;
   text-align: center;
