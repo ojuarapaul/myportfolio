@@ -10,6 +10,10 @@ function close_offcanvas() {
 
 
 
+// playing with DOM
+//document.getElementById("welcome-section").style.color = "hsl(236, 91%, 18%)";
+//document.getElementById("subHeader").style.color = "darkorange";
+
 //function close_offcanvas() {
   //  var offcanvasHTMLObject = document.getElementById("offcanvasDarkNavbar");
   //  var offcanvasBSObject = bootstrap.Offcanvas.getInstance(offcanvasHTMLObject);
