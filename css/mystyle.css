@@ -16,6 +16,14 @@ body {
 
 /* Welcome section */
 
+.bgTransp {
+  opacity:0.7;
+}
+
+.bgTransp1 {
+  opacity:0.6;
+}
+
 .welcome-section {
   background-image: url("../images/welcome_bkg.png");
   opacity:1;
